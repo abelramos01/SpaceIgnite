@@ -1,0 +1,518 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    opacity: 0;
+    transition: 0.5s ease-in;
+    z-index: 1;
+    background-color: rgb(4, 1, 26);
+}
+
+.visivel {
+    opacity: 1;
+}
+
+.navbar-custom {
+    background-color: black;
+    /* Cor de fundo */
+    height: auto;
+    /* Ajusta a altura automaticamente */
+}
+
+.navbar-toggler {
+    border: none;
+    /* Remove a borda do botão */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Ícone do botão em branco */
+}
+
+.navbar-brand:hover {
+    opacity: 0.8;
+    /* Transição ao passar o mouse */
+}
+
+.nav-link {
+    color: white;
+    /* Cor do texto */
+    transition: 0.5s ease-in;
+    /* Suavidade na transição */
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    opacity: 0.5;
+    /* Efeito ao passar o mouse */
+    color: white;
+}
+
+.Titulo {
+    background-color: #ffffff;
+    width: 20%;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Centraliza o contêiner principal */
+#container-cadastro {
+    width: 50%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.949);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#cadastro-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cadastro-form label {
+    width: 90%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#cadastro-form input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    outline: none;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+
+/* Contêiner de imagens */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-container img {
+    width: 40%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+}
+
+/*Botoes*/
+
+.botao {
+    background: rgb(255, 255, 255);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    width: 120px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.botao span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.botao:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    z-index: 1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.botao:hover {
+    color: rgb(255, 255, 255);
+}
+
+.botao:hover:before {
+    transform: translateY(-100%);
+}
+
+/* Media query para telas pequenas (mobile) */
+@media (max-width: 768px) {
+
+    .Titulo {
+        width: 80%;
+        /* Ajusta a largura para 80% em dispositivos móveis */
+        margin-top: 20px;
+        /* Menos margem superior */
+        font-size: 24px;
+        /* Ajusta o tamanho da fonte */
+    }
+
+    #container-cadastro {
+        width: 90%;
+        /* Altera a largura para 90% da tela */
+        margin: 20px auto;
+        /* Diminui o espaçamento nas laterais */
+    }
+
+    #cadastro-form input {
+        height: 40px;
+        /* Garante uma altura confortável */
+        font-size: 14px;
+        /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    .botao {
+        width: 100%;
+        /* Botão ocupa 100% da largura */
+        font-size: 18px;
+        /* Tamanho de fonte maior no botão */
+        margin-top: 20px;
+        /* Maior espaçamento em tela pequena */
+    }
+}
+
+
+/*Login*/
+
+/* Estiliza o contêiner principal */
+#container-Login {
+    width: 50%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.949);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estiliza o contêiner interno do formulário */
+#container-Lform {
+    width: 100%;
+}
+
+/* Estiliza o formulário */
+#login-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#login-form input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    outline: none;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Estiliza o botão de login */
+#login-form .botao {
+    background: rgb(255, 255, 255);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    width: 120px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    border: 3px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Estilo de hover para o botão */
+#login-form .botao span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+#login-form .botao:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    z-index: 1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+#login-form .botao:hover {
+    color: rgb(255, 255, 255);
+}
+
+#login-form .botao:hover:before {
+    transform: translateY(-100%);
+}
+
+/*ADD NOTICIA*/
+
+/*PopUp*/
+.popup-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.popup-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Pop-up */
+.popup {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteúdo do pop-up */
+.popup-content {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column; /* Organiza as imagens em coluna */
+    gap: 10px; /* Espaçamento entre as imagens */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%; /* Garante que as imagens respeitem o contêiner */
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: rgb(7, 0, 43);
+}
+
+#container-add {
+    width: 50%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.949);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#add-form,
+#editar-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#add-form label,
+#editar-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#add-form input,
+#editar-form input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    outline: none;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 50%;
+    height: 10vh;
+    max-height: 100px;
+    max-width: 500px;
+    min-height: 100px;
+    min-width: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    border: solid #000000 3px;
+    outline: none;
+}
+
+.imagem-noticia {
+    border: none;
+}
+
+footer {
+    height: 10vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    bottom: -800px;
+}
+
+@media (max-width: 768px) {
+    /* Botão Pop-up */
+    .popup-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popup-content {
+        max-width: 90%; /* Ajusta para ocupar a maior parte da tela */
+        padding: 15px; /* Reduz o espaçamento interno */
+        height: auto; /* Altura ajustável */
+        display: flex;
+        flex-direction: column; /* Torna o layout uma coluna */
+        align-items: center; /* Centraliza os elementos */
+        justify-content: center; /* Centraliza verticalmente */
+    }
+    
+    .image-container {
+        display: flex;
+        flex-direction: column; /* Organiza as imagens em coluna */
+        gap: 10px; /* Espaçamento entre as imagens */
+        align-items: center; /* Centraliza horizontalmente */
+        width: 100%; /* Garante que as imagens respeitem o contêiner */
+    }
+    
+    .image-container img {
+        width: 80%; /* Ajusta o tamanho das imagens */
+        height: auto; /* Mantém a proporção das imagens */
+        border-radius: 8px; /* Adiciona cantos arredondados */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar as imagens */
+        cursor: pointer; /* Indica que as imagens são clicáveis */
+        transition: transform 0.2s; /* Suaviza o efeito de hover */
+    }
+    
+    .image-container img:hover {
+        transform: scale(1.1); /* Aumenta levemente no hover */
+    }
+    
+
+    /* Fechar botão no pop-up */
+    .close-btn {
+        font-size: 18px;
+    }
+
+    /* Formulários */
+    #add-form input,
+    #editar-form input {
+        width: 90%; /* Ajusta os campos para telas menores */
+    }
+
+    /* Textarea */
+    textarea {
+        width: 90%; /* Ajusta o tamanho para caber em telas menores */
+        max-width: 90%;
+        min-width: 90%;
+    }
+
+    /* Footer */
+    footer {
+        height: auto;
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Contêiner principal */
+    #container-add {
+        width: 90%; /* Reduz a largura do contêiner */
+        margin: 20px auto; /* Ajusta o espaçamento */
+    }
+}
+
