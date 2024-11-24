@@ -134,64 +134,61 @@ body {
     #container, 
     #container2, 
     #container3 {
-        background-size: cover; 
-        background-position: center;
-        display: flex; 
-        align-items: center; /* Centraliza verticalmente o conteúdo */
-        justify-content: center; /* Centraliza horizontalmente o conteúdo */
-        flex-direction: column; /* Para que os textos apareçam em coluna */
-        text-align: center; /* Centraliza o texto */
-        gap: 20px; /* Espaçamento uniforme entre os elementos */
-        padding: 20px; /* Espaçamento interno do contêiner */
-    }
+        background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+gap: 20px;
+padding: 20px;
+}
 
-    /* Ajusta o texto do primeiro contêiner */
-    #texto-apresentacao {
-        width: 90%; /* Ocupa quase toda a largura da tela */
-        font-size: 1rem; /* Reduz tamanho da fonte */
-        color: white;
-        padding: 20px;
-        border-radius: 8px;
-        background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
-        margin: 10px 0; /* Adiciona espaçamento */
-    }
+#texto-apresentacao {
+    width: 90%;
+    font-size: 1rem;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+}
 
-    /* Ajusta o título do primeiro contêiner */
-    #title {
-        width: 90%; /* Ocupa quase toda a largura da tela */
-        font-size: 1rem; /* Reduz tamanho da fonte */
-        color: white;
-        padding: 20px;
-        border-radius: 8px;
-        background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
-        margin: 10px 0; /* Adiciona espaçamento */
-        left: 20px;
-    }
+#title {
+    width: 90%;
+    font-size: 1rem;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+    left: 20px;
+}
 
-    /* Ajusta o texto do segundo contêiner */
-    #texto-apresentacao2 {
-        width: 90%; /* Ocupa quase toda a largura da tela */
-        font-size: 1rem; /* Reduz tamanho da fonte */
-        color: white;
-        padding: 20px;
-        border-radius: 8px;
-        background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
-        margin: 10px 0; /* Adiciona espaçamento */
-        left: 20px;
-        top: 40%;
-    }
+#texto-apresentacao2 {
+    width: 90%;
+    font-size: 1rem;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+    left: 20px;
+    top: 40%;
+}
 
-    /* Ajusta o título do segundo contêiner */
-    #title-2 {
-        width: 90%; /* Ocupa quase toda a largura da tela */
-        font-size: 1rem; /* Reduz tamanho da fonte */
-        color: white;
-        padding: 20px;
-        border-radius: 8px;
-        background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
-        margin: 10px 0; /* Adiciona espaçamento */
-        left: 20px;
-    }
+#title-2 {
+    width: 90%;
+    font-size: 1rem;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+    left: 20px;
+}
+
 }
 
 /*botao configuração*/
