@@ -171,7 +171,8 @@ body {
 /*Responsividade*/
 
 
-@media (max-width: 768px) {
+
+ @media (max-width: 768px) {
   .card-row {
     display: flex;
     flex-direction: column;
@@ -200,5 +201,28 @@ body {
     align-items: center;
 }
 
+.card-back {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    word-wrap: break-word;
+
+}
+
+.card-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.card-container:not(:last-child) {
+    margin-bottom: 20px;
+}
+}
 
 
