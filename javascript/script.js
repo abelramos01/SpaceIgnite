@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
+    //gera um id para elementos salvos no local storage
     function geradorID() {
         return Date.now(); 
     }
@@ -52,9 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Cadastro de usuário
+
+    //verifica se usuario esta logado e se está na pagina de cadastro
     if (!usuarioLogado && window.location.pathname.includes('cadastro.html')) {
         const cadastroForm = document.getElementById('cadastro-form');
 
+        
+        //adciona um evento de submit ao formulario cadastro 
         if (cadastroForm) {
             cadastroForm.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -62,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        //função de cadastro de novo usuario
         function cadastrarUsuario() {
             const nome = document.getElementById('nome').value.trim();
             const senha = document.getElementById('senha').value.trim();
@@ -80,15 +86,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            //coloca o usuario num array 
             const novoUsuario = {
                 id: Date.now(),
                 nome: nome,
                 senha: senha
             };
 
+            //coloca a variavel no local storage
             usuarios.push(novoUsuario);
             localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
+            //emite o alert de conclusão
             alert('Usuário cadastrado com sucesso!');
             cadastroForm.reset();
             window.location.href = "login.html";
@@ -100,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!usuarioLogado && window.location.pathname.includes('login.html')) {
         const loginForm = document.getElementById('login-form');
 
+        //adciona um evento de submit ao formulario login 
         if (loginForm) {
             loginForm.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -107,29 +117,27 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        //função de login
         function realizarLogin() {
             const nomeLogin = document.getElementById('nome-login').value.trim();
             const senhaLogin = document.getElementById('senha-login').value.trim();
 
-            // Validar campos
-            if (!nomeLogin || !senhaLogin) {
-                alert('Preencha todos os campos!');
-                return;
-            }
-
+        
             const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
             const usuarioEncontrado = usuarios.find(usuario => usuario.nome === nomeLogin);
 
+            //verifica se usuario está cadastrado
             if (usuarioEncontrado && usuarioEncontrado.senha === senhaLogin) {
                 localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
 
-
+                //alert oficializando o login
                 alert('Login realizado com sucesso!');
                 loginForm.reset();
                 setTimeout(() => {
                     window.location.href = "inicio.html";
                 }, 100);
+             //usuario ou senha nao encotrados   
             } else if (usuarioEncontrado) {
                 alert('Senha incorreta!');
             } else {
@@ -143,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //logout função
     let verifyLogout = document.getElementById('logout-link');
 
+    //adiciona o evento ao clicar no botao "sair"
     if (verifyLogout) {
         verifyLogout.addEventListener('click', function (e) {
             e.preventDefault();
@@ -150,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    //desloga usuario
     function logout() {
         localStorage.removeItem('usuarioLogado');
         alert('Você foi deslogado!');
@@ -266,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // Caso o usuário não esteja logado
             alert('Você precisa estar logado para adicionar notícias!');
-            window.location.href = "login.html"; // Redireciona para a página de login
+            window.location.href = "login.html"; 
         }
     }
 
@@ -274,41 +284,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (window.location.pathname.includes('inicio.html')) {
 
+        //pegando variaveis
         const noticias = JSON.parse(localStorage.getItem('noticias')) || [];
 
         const container = document.getElementById('noticias-container');
 
-
+        //foreach que carrega as noticias do localstorage
         noticias.forEach((noticia) => {
 
+            //linha de divisao entre noticias
             const linhaDiv = document.createElement('div');
             linhaDiv.className = 'linha-divisoria';
             container.appendChild(linhaDiv);
 
-
+            //imagem de fundo 
             const noticiaDiv = document.createElement('div');
             noticiaDiv.className = 'oculto-2';
             noticiaDiv.id = "container2";
             noticiaDiv.style.backgroundImage = `url(${noticia.imagemNoticia})`;
 
-
+            //titulo da noticia
             const titleDiv = document.createElement('div');
             titleDiv.id = "title-2";
             const title = document.createElement('h1');
             title.textContent = noticia.titulo;
             titleDiv.appendChild(title);
 
-
+            //apresentação da noticia
             const textoApresentacaoDiv = document.createElement('div');
             textoApresentacaoDiv.id = "texto-apresentacao2";
             const texto = document.createElement('p');
             texto.textContent = noticia.explicacao;
 
-
+            //botao com redirecionamento para a pagina noticia
             const buttonContainer = document.createElement('div');
             buttonContainer.className = 'button-container';
 
-
+            //link com o id da noticia
             const verMaisLink = document.createElement('a');
             verMaisLink.href = `noticia.html?id=${noticia.id_noticia}`;
             const verMaisButton = document.createElement('button');
@@ -317,8 +329,6 @@ document.addEventListener('DOMContentLoaded', function () {
             verMaisLink.appendChild(verMaisButton);
 
             textoApresentacaoDiv.appendChild(buttonContainer);
-
-
 
             textoApresentacaoDiv.appendChild(texto);
             textoApresentacaoDiv.appendChild(verMaisLink);
@@ -338,7 +348,10 @@ document.addEventListener('DOMContentLoaded', function () {
             processarPagina();
         });
 
+        //processo da pagina com noticia selecionada
         function processarPagina() {
+
+            //coleta de dados
             const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
             const noticias = JSON.parse(localStorage.getItem('noticias')) || [];
             const url = new URL(window.location.href);
@@ -347,17 +360,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const noticiaAtual = noticias.find(noticia => noticia.id_noticia == id);
 
+            //chama a função se usuario estiver logado
             if (usuarioLogado) {
                 gerenciarBotoes(usuarioLogado, noticiaAtual);
             }
-
             atualizarPaginaComNoticia(noticiaAtual);
         }
+
 
         // Função para atualizar o conteúdo da página com base na notícia
         function atualizarPaginaComNoticia(noticiaAtual) {
 
-
+            //atualiza cada elemento id do html, de acordo com o elemento da variavel "noticiaAtual"
             const video = document.getElementById('video');
             video.src = `https://www.youtube.com/embed/${noticiaAtual.linkNoticia}`;
 
@@ -386,15 +400,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const botao2 = document.getElementById("button2");
 
-
                 botao2.className = "visivel2";
-
 
             }
         }
 
         const botao2 = document.getElementById("button2");
 
+        //evento de click para exclusao de noticia
         botao2.addEventListener('click', function () {
             excluir(); // Chama a função para excluir a notícia
         });
@@ -403,33 +416,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function excluir() {
 
+            //coleta variaveis
             let url = new URL(window.location.href);
             let params = new URLSearchParams(url.search);
             let id = params.get('id');
 
+            
+            //caso id nao seja encontrado
             if (!id) {
                 alert('ID da notícia não encontrado!');
                 return;
             }
 
-
+            //pega noticias do local storage
             let noticias = JSON.parse(localStorage.getItem('noticias')) || [];
 
 
             let indice = noticias.findIndex(noticia => noticia.id_noticia == id);
 
+            //caso indice nao seja encontrado
             if (indice === -1) {
                 alert('Notícia não encontrada!');
                 return;
             }
 
-
+            //exclusão por splice
             noticias.splice(indice, 1);
 
-
+            //atualiza o local storage
             localStorage.setItem('noticias', JSON.stringify(noticias));
 
-
+            //alert emitindo sucesso da exclusão
             alert('Notícia excluída com sucesso!');
             window.location.href = "inicio.html";
         }
