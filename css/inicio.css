@@ -14,38 +14,36 @@ body {
 }
 
 .navbar-custom {
-    background-color: black; /* Cor de fundo */
-    height: auto; /* Ajusta a altura automaticamente */
+    background-color: black; 
+    height: auto; 
 }
 
 .navbar-toggler {
-    border: none; /* Remove a borda do botão */
+    border: none; 
 }
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    /* Ícone do botão em branco */
 }
 
 .navbar-brand:hover {
-    opacity: 0.8; /* Transição ao passar o mouse */
+    opacity: 0.8; 
 }
 
 .nav-link {
-    color: white; /* Cor do texto */
-    transition: 0.5s ease-in; /* Suavidade na transição */
+    color: white; 
+    transition: 0.5s ease-in; 
     margin-right: 10px;
 }
 
 .nav-link:hover {
-    opacity: 0.5; /* Efeito ao passar o mouse */
+    opacity: 0.5; 
     color: white;
 }
 
 #container {
     background-image: url("../images/planeta.jpg");
     background-size: cover;
-    /* Diminui o tamanho da imagem para 80% do contêiner */
     background-repeat: no-repeat;
     background-position: center;
     height: 90vh;
@@ -86,9 +84,9 @@ body {
     background-position: left;
     position: relative;
     display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    align-items: center;  /* Centraliza verticalmente */
-    flex-direction: column;  /* Organiza os elementos em coluna */
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column; 
 }
 
 #texto-apresentacao2 {
@@ -98,7 +96,7 @@ body {
     padding: 10px;
     font-size: large;
     box-sizing: border-box;
-    text-align: center;  /* Alinha o texto no centro */
+    text-align: center; 
 }
 
 #title-2 {
